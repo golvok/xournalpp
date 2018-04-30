@@ -103,7 +103,6 @@ if (BUILD_POPPLER)
   
   # Additional packages required by Poppler
   find_package (OpenJPEG REQUIRED)
-  find_package (JPEG REQUIRED)
   pkg_check_modules (PopplerLibs REQUIRED "librsvg-2.0 >= 2.14.0" fontconfig)
 
   pkg_check_modules (lcms2 lcms2)
@@ -134,12 +133,9 @@ if (BUILD_POPPLER)
     libpoppler-glib.so
     
     ${OPENJPEG_LIBRARIES}
-    -lopenjpeg
-    ${JPEG_LIBRARIES}
     ${PopplerLibs_LDFLAGS}
     ${lcms_LDFLAGS}
   )
-  # -lopenjpeg added as fallback
   
   set (POPPLER_INCLUDE_DIRS
     "${POPPLER_PREFIX}/src/poppler-build"
